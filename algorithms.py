@@ -48,3 +48,30 @@ def selection_sort(arr):
 
     return numbers, comparisons, swaps
 
+###Insertion Sort Algorithm
+
+def insertion_sort(arr):
+    numbers = arr.copy()
+    comparisons = 0
+    movements = 0
+
+    n = len(numbers)
+
+    for i in range(1, n):
+        key = numbers[i]
+        j = i - 1
+
+        while j >= 0:
+            comparisons += 1
+
+            if numbers[j] > key:
+                numbers[j + 1] = numbers[j]
+                movements += 1
+                j -= 1
+            else:
+                break
+
+        numbers[j + 1] = key
+        movements += 1
+
+    return numbers, comparisons, movements
