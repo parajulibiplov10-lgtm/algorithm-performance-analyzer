@@ -55,3 +55,16 @@ print("Sorted:", sorted_numbers)
 print("Comparisons:", comparisons)
 print("Swaps:", swaps)
 
+##Test the Dataset Generator
+
+from dataset_generator import (
+    generate_random_data,
+    generate_sorted_data,
+    generate_reverse_sorted_data
+)
+
+print("\n--- Dataset Generator Test ---")
+
+print("Random:", generate_random_data(10))
+print("Sorted:", generate_sorted_data(10))
+print("Reverse Sorted:", generate_reverse_sorted_data(10))
