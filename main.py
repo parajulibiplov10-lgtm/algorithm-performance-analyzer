@@ -34,3 +34,15 @@ print("Original:", numbers)
 print("Sorted:", sorted_numbers)
 print("Comparisons:", comparisons)
 print("Movements:", movements)
+
+from algorithms import bubble_sort, selection_sort, insertion_sort, merge_sort;
+print("\n--- Merge Sort ---")
+
+numbers = [7, 3, 5, 2, 9]
+
+sorted_numbers, comparisons, movements = merge_sort(numbers)
+
+print("Original:", numbers)
+print("Sorted:", sorted_numbers)
+print("Comparisons:", comparisons)
+print("Movements:", movements)

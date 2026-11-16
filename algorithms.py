@@ -75,3 +75,53 @@ def insertion_sort(arr):
         movements += 1
 
     return numbers, comparisons, movements
+
+##Merger Sort Algorithm
+
+def merge_sort(arr):
+    numbers = arr.copy()
+    comparisons = 0
+    movements = 0
+
+    def merge_sort_recursive(values):
+        nonlocal comparisons, movements
+
+        if len(values) <= 1:
+            return values
+
+        mid = len(values) // 2
+
+        left = merge_sort_recursive(values[:mid])
+        right = merge_sort_recursive(values[mid:])
+
+        merged = []
+        i = 0
+        j = 0
+
+        while i < len(left) and j < len(right):
+            comparisons += 1
+
+            if left[i] <= right[j]:
+                merged.append(left[i])
+                i += 1
+            else:
+                merged.append(right[j])
+                j += 1
+
+            movements += 1
+
+        while i < len(left):
+            merged.append(left[i])
+            movements += 1
+            i += 1
+
+        while j < len(right):
+            merged.append(right[j])
+            movements += 1
+            j += 1
+
+        return merged
+
+    sorted_numbers = merge_sort_recursive(numbers)
+
+    return sorted_numbers, comparisons, movements
