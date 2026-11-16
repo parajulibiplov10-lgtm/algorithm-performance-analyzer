@@ -125,3 +125,48 @@ def merge_sort(arr):
     sorted_numbers = merge_sort_recursive(numbers)
 
     return sorted_numbers, comparisons, movements
+
+# quick sort algorithm
+
+def quick_sort(arr):
+    numbers = arr.copy()
+    comparisons = 0
+    swaps = 0
+
+    def partition(low, high):
+        nonlocal comparisons, swaps
+
+        pivot = numbers[high]
+        i = low - 1
+
+        for j in range(low, high):
+            comparisons += 1
+
+            if numbers[j] <= pivot:
+                i += 1
+
+                if i != j:
+                    numbers[i], numbers[j] = numbers[j], numbers[i]
+                    swaps += 1
+
+        pivot_index = i + 1
+
+        if pivot_index != high:
+            numbers[pivot_index], numbers[high] = (
+                numbers[high], numbers[pivot_index]
+            )
+            swaps += 1
+
+        return pivot_index
+
+    def quick_sort_recursive(low, high):
+        if low < high:
+            pivot_index = partition(low, high)
+
+            quick_sort_recursive(low, pivot_index - 1)
+            quick_sort_recursive(pivot_index + 1, high)
+
+    quick_sort_recursive(0, len(numbers) - 1)
+
+    return numbers, comparisons, swaps
+
