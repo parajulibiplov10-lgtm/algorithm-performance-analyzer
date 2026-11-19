@@ -74,3 +74,19 @@ print("Random:", random_data)
 print("Sorted:", sorted_data)
 print("Reverse Sorted:", reverse_data)
 
+
+from benchmark import benchmark_algorithm
+
+print("\n--- Benchmark Test ---")
+
+test_numbers = generate_random_data(100)
+
+sorted_numbers, execution_time, comparisons, operations = (
+    benchmark_algorithm(bubble_sort, test_numbers)
+)
+
+print("Algorithm: Bubble Sort")
+print("Dataset Size:", len(test_numbers))
+print("Execution Time:", round(execution_time, 4), "ms")
+print("Comparisons:", comparisons)
+print("Swaps:", operations)
