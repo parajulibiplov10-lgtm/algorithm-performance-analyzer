@@ -1,5 +1,6 @@
 
 import random
+from algorithms import merge_sort
 
 
 # Generate random dataset
@@ -12,21 +13,20 @@ def generate_random_data(size):
     return numbers
 
 
-# Generate sorted dataset (ascending order)
-def generate_sorted_data(size):
-    numbers = []
+# Generate sorted dataset using the same values
+def generate_sorted_data(numbers):
+    sorted_numbers, comparisons, movements = merge_sort(numbers)
 
-    for i in range(1, size + 1):
-        numbers.append(i)
-
-    return numbers
+    return sorted_numbers
 
 
-# Generate reverse sorted dataset (descending order)
-def generate_reverse_sorted_data(size):
-    numbers = []
+# Generate reverse sorted dataset using the same values
+def generate_reverse_sorted_data(numbers):
+    sorted_numbers = generate_sorted_data(numbers)
 
-    for i in range(size, 0, -1):
-        numbers.append(i)
+    reversed_numbers = []
 
-    return numbers
+    for i in range(len(sorted_numbers) - 1, -1, -1):
+        reversed_numbers.append(sorted_numbers[i])
+
+    return reversed_numbers

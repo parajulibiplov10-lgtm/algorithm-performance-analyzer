@@ -57,6 +57,7 @@ print("Swaps:", swaps)
 
 ##Test the Dataset Generator
 
+
 from dataset_generator import (
     generate_random_data,
     generate_sorted_data,
@@ -65,6 +66,11 @@ from dataset_generator import (
 
 print("\n--- Dataset Generator Test ---")
 
-print("Random:", generate_random_data(10))
-print("Sorted:", generate_sorted_data(10))
-print("Reverse Sorted:", generate_reverse_sorted_data(10))
+random_data = generate_random_data(10)
+sorted_data = generate_sorted_data(random_data)
+reverse_data = generate_reverse_sorted_data(random_data)
+
+print("Random:", random_data)
+print("Sorted:", sorted_data)
+print("Reverse Sorted:", reverse_data)
+
